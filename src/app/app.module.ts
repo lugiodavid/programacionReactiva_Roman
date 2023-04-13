@@ -6,7 +6,6 @@ import { HomeComponent } from './layout/home/home.component';
 import { SidebarComponent } from './layout/sidebar/sidebar.component';
 import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { PageWrapperComponent } from './layout/page-wrapper/page-wrapper.component';
-import { ListaAlumnosComponent } from './alumnos/lista-alumnos/lista-alumnos.component';
 import { AbmAlumnosModule } from './alumnos/abm-alumnos/abm-alumnos.module';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { DashboardModule } from './layout/dashboard/dashboard.module';
@@ -18,7 +17,6 @@ import { DashboardModule } from './layout/dashboard/dashboard.module';
     SidebarComponent,
     ToolbarComponent,
     PageWrapperComponent,
-    ListaAlumnosComponent,
   ],
   imports: [
     BrowserModule,

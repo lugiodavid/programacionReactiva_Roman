@@ -5,12 +5,21 @@
       <form (ngSubmit)="onSubmit()" [formGroup]="registerForm" class="row g-3">
         <div class="row g-3">
           <div class="col">
-            <label for="nombre" class="form-label">Nombre</label>
+            <mat-form-field appearance="fill">
+              <mat-label>Nombre</mat-label>
+              <input matInput [formControl]="nombreControl"
+                [ngClass]="{'is-invalid': nombreControl.invalid && nombreControl.touched}" class="form-control"
+                placeholder="Nombre">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+              <mat-hint>El nombre debe tener minimo 6 caracteres</mat-hint>
+              <mat-error>Este es un campo requerido</mat-error>
+            </mat-form-field>
+            <!-- <label for="nombre" class="form-label">Nombre</label>
             <input [formControl]="nombreControl" type="text"
               [ngClass]="{'is-invalid': nombreControl.invalid && nombreControl.touched}" class="form-control"
-              placeholder="Nombre" aria-label="Nombre">
-            <app-form-error-helper *ngIf="nombreControl.invalid && nombreControl.touched"
-              [formErrors]="nombreControl.errors"></app-form-error-helper>
+              placeholder="Nombre" aria-label="Nombre"> -->
+            <!-- <app-form-error-helper *ngIf="nombreControl.invalid && nombreControl.touched"
+              [formErrors]="nombreControl.errors"></app-form-error-helper> -->
             <!-- <div *ngIf="nombreControl.hasError('required') && nombreControl.touched" class="invalid-feedback">Mínimo 10
               caracteres</div>
             <div *ngIf="nombreControl.hasError('required') && nombreControl.touched" class="invalid-feedback">Requerido

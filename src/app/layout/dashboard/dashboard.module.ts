@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { AbmAlumnosModule } from 'src/app/alumnos/abm-alumnos/abm-alumnos.module';
 import { CardsModule } from '../pages/cards/cards.module';
 import { ButtonsAndInconsModule } from '../pages/buttons-and-incons/buttons-and-incons.module';
+import { ListaAlumnosModule } from 'src/app/alumnos/lista-alumnos/lista-alumnos.module';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -20,6 +21,7 @@ import { ButtonsAndInconsModule } from '../pages/buttons-and-incons/buttons-and-
     AbmAlumnosModule,
     CardsModule,
     ButtonsAndInconsModule,
+    ListaAlumnosModule,
   ],
   exports: [DashboardComponent],
 })
