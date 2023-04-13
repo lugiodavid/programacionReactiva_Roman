@@ -8,6 +8,8 @@ import { ToolbarComponent } from './layout/toolbar/toolbar.component';
 import { PageWrapperComponent } from './layout/page-wrapper/page-wrapper.component';
 import { ListaAlumnosComponent } from './alumnos/lista-alumnos/lista-alumnos.component';
 import { AbmAlumnosModule } from './alumnos/abm-alumnos/abm-alumnos.module';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { DashboardModule } from './layout/dashboard/dashboard.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +20,12 @@ import { AbmAlumnosModule } from './alumnos/abm-alumnos/abm-alumnos.module';
     PageWrapperComponent,
     ListaAlumnosComponent,
   ],
-  imports: [BrowserModule, AbmAlumnosModule],
+  imports: [
+    BrowserModule,
+    AbmAlumnosModule,
+    BrowserAnimationsModule,
+    DashboardModule,
+  ],
   providers: [],
   bootstrap: [AppComponent],
 })
