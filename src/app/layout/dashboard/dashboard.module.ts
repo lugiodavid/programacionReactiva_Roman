@@ -9,6 +9,7 @@ import { AbmAlumnosModule } from 'src/app/alumnos/abm-alumnos/abm-alumnos.module
 import { CardsModule } from '../pages/cards/cards.module';
 import { ButtonsAndInconsModule } from '../pages/buttons-and-incons/buttons-and-incons.module';
 import { ListaAlumnosModule } from 'src/app/alumnos/lista-alumnos/lista-alumnos.module';
+import { DirectivesModule } from 'src/app/shared/directives/directives.module';
 
 @NgModule({
   declarations: [DashboardComponent],
@@ -22,6 +23,7 @@ import { ListaAlumnosModule } from 'src/app/alumnos/lista-alumnos/lista-alumnos.
     CardsModule,
     ButtonsAndInconsModule,
     ListaAlumnosModule,
+    DirectivesModule,
   ],
   exports: [DashboardComponent],
 })
