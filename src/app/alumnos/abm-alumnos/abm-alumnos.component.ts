@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Inject } from '@angular/core';
 import {
   AbstractControl,
   FormBuilder,
@@ -8,6 +8,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
+import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 
 @Component({
   selector: 'app-abm-alumnos',
@@ -39,31 +40,55 @@ export class AbmAlumnosComponent {
   zipControl = new FormControl();
   vipControl = new FormControl(false);
 
-  registerForm: FormGroup;
+  registerForm = new FormGroup({
+    nombre: this.nombreControl,
+    apellido: this.apellidoControl,
+    email: this.emailControl,
+    curso: this.cursoControl,
+    password: this.passwordControl,
+    direccion: this.direccionControl,
+    direccion2: this.direccion2Control,
+    ciudad: this.ciudadControl,
+    provincia: this.provinciaControl,
+    zip: this.zipControl,
+    vip: this.vipControl,
+  });
 
-  constructor(public formBuilder: FormBuilder) {
-    this.registerForm = this.formBuilder.group({
-      nombre: this.nombreControl,
-      apellido: this.apellidoControl,
-      email: this.emailControl,
-      curso: this.cursoControl,
-      password: this.passwordControl,
-      direccion: this.direccionControl,
-      direccion2: this.direccion2Control,
-      ciudad: this.ciudadControl,
-      provincia: this.provinciaControl,
-      zip: this.zipControl,
-      vip: this.vipControl,
-    });
+  constructor(
+    private dialogRef: MatDialogRef<AbmAlumnosComponent>,
+    @Inject(MAT_DIALOG_DATA) private data: any
+  ) {
+    if (data) {
+      this.nombreControl.setValue(data.alumnoParaEditar.nombre);
+      this.apellidoControl.setValue(data.alumnoParaEditar.apellido);
+      this.cursoControl.setValue(data.alumnoParaEditar.curso);
+      this.vipControl.setValue(data.alumnoParaEditar.vip);
+      this.emailControl.setValue(data.alumnoParaEditar.email);
+      this.provinciaControl.setValue(data.alumnoParaEditar.provincia);
+      this.direccionControl.setValue(data.alumnoParaEditar.direccion);
+      this.direccion2Control.setValue(data.alumnoParaEditar.direccion2);
+      this.zipControl.setValue(data.alumnoParaEditar.zip);
+      this.passwordControl.setValue(data.alumnoParaEditar.password);
+      this.ciudadControl.setValue(data.alumnoParaEditar.ciudad);
+    }
   }
-  onSubmit(): void {
+
+  guardar(): void {
     if (this.registerForm.valid) {
-      this.alumnos.push(this.registerForm.value);
-      this.registerForm.reset();
+      this.dialogRef.close(this.registerForm.value);
     } else {
       this.registerForm.markAllAsTouched();
     }
   }
+
+  // onSubmit(): void {
+  //   if (this.registerForm.valid) {
+  //     this.alumnos.push(this.registerForm.value);
+  //     this.registerForm.reset();
+  //   } else {
+  //     this.registerForm.markAllAsTouched();
+  //   }
+  // }
 
   noEscogerValidator(): ValidatorFn {
     return (control: AbstractControl): ValidationErrors | null => {
