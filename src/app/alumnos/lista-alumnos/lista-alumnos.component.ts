@@ -28,9 +28,10 @@ export class ListaAlumnosComponent {
   alumnos: Alumno[] = [
     {
       id: 1,
-      nombre: 'Guillermo',
-      apellido: 'Valarezo',
       email: 'gv@mail.com',
+      nombre: 'David',
+      apellido: 'Roman',
+      email: 'lugiodavid@mail.com',
       curso: 'Node',
       password: '',
       direccion: '',
