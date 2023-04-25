@@ -56,9 +56,9 @@ export class ListaAlumnosComponent {
     },
     {
       id: 3,
-      nombre: 'Fideo',
+      nombre: 'Juan',
       apellido: 'Di Maria',
-      email: 'fd@mail.com',
+      email: 'jd@hotmail.com',
       curso: 'Java',
       password: '',
       direccion: 'Avenida',
